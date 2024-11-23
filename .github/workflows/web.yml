@@ -1,0 +1,21 @@
+name: Web CI
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    container:
+      image: emscripten/emsdk:3.1.72
+      volumes:
+        - ./:src
+    steps:
+      - name: Check
+        run: |
+          em++ --version
+          pwd
+          ls
+      # - name: Checkout
+      #   uses: actions/checkout@v4
