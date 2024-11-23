@@ -12,10 +12,8 @@ jobs:
       volumes:
         - ./:/src
     steps:
-      - name: Check
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check contents
         run: |
-          em++ --version
-          pwd
-          ls
-      # - name: Checkout
-      #   uses: actions/checkout@v4
+          ls -a
